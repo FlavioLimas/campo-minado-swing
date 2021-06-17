@@ -23,7 +23,11 @@ public class Campo {
     public void registrarObservador(CampoObservador observador) {
         observadores.add(observador);
     }
-    
+
+    private void notificarObservadores(CampoEvento evento) {
+        observadores.stream()
+        .forEach(o -> eventoOcorreu(this, evento));
+    }
     boolean adicionarVizinho(Campo vizinho) {
         boolean linhaDiferente = linha != vizinho.linha;
         boolean colunaDiferente = coluna != vizinho.coluna;
