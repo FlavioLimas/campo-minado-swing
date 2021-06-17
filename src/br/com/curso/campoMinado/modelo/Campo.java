@@ -13,6 +13,7 @@ public class Campo {
     private boolean marcado = false;
 
     private List<Campo> vizinhos = new ArrayList<>();
+    private List<CampoObservador> observadores = new ArrayList<>();
 
     Campo(int linha, int coluna) {
         this.linha = linha;
