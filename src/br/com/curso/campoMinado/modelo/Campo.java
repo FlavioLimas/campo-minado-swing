@@ -2,7 +2,6 @@ package br.com.curso.campoMinado.modelo;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.BiConsumer;
 
 public class Campo {
 
@@ -15,13 +14,16 @@ public class Campo {
 
     private List<Campo> vizinhos = new ArrayList<>();
     private List<CampoObservador> observadores = new ArrayList<>();
-    private List<BiConsumer<Campo, CampoEvento >> observadores2 = new ArrayList<>();
 
     Campo(int linha, int coluna) {
         this.linha = linha;
         this.coluna = coluna;
     }
 
+    public void registrarObservador(CampoObservador observador) {
+        observadores.add(observador);
+    }
+    
     boolean adicionarVizinho(Campo vizinho) {
         boolean linhaDiferente = linha != vizinho.linha;
         boolean colunaDiferente = coluna != vizinho.coluna;
