@@ -44,6 +44,8 @@ public class Tabuleiro implements CampoObservador {
     private void gerarCampos() {
         for (int linha = 0; linha < linhas; linha++) {
             for (int coluna = 0; coluna < colunas; coluna++) {
+                Campo campo = new Campo(linha, coluna);
+                campo.registrarObservador(this);
                 campos.add(new Campo(linha, coluna));
             }
             
