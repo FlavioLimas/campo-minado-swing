@@ -57,7 +57,6 @@ public class Campo {
             }else {
                 notificarObservadores(CampoEvento.DESMARCAR);
             }
-            }
         }
     }
 
