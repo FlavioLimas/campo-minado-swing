@@ -64,11 +64,13 @@ public class Campo {
     boolean abrir() {
 
         if(!aberto && !marcado) {
-            aberto = true;
-
+            
             if (minado) {
-                // TODO Implementar nova versão
+                notificarObservadores(CampoEvento.EXPLODIR);
+                return true;
             }
+
+            setAberto(true);
 
             if(vizinhancaSegura()) {
                 vizinhos.forEach(v -> v.abrir());
@@ -97,6 +99,9 @@ public class Campo {
 
     void setAberto(boolean aberto) {
         this.aberto = aberto;
+        if (aberto) {
+            notificarObservadores(CampoEvento.ABRIR);
+        }
     }
 
     public boolean isAberto() {
