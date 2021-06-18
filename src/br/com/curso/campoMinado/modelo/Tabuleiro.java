@@ -33,18 +33,12 @@ public class Tabuleiro implements CampoObservador {
     }
 
     public void abrir(int linha, int coluna) {
-        try {
-            campos.parallelStream()
-            .filter(c -> c.getLinha() == linha && c.getColuna() == coluna)
-            .findFirst()
-            .ifPresent(c -> c.abrir());
-        } catch (Exception e) {
-            // FIXME Ajustar a implementação do metodo abrir
-            campos.forEach(c -> c.setAberto(true));
-            throw e;
-        }
+        campos.parallelStream()
+        .filter(c -> c.getLinha() == linha && c.getColuna() == coluna)
+        .findFirst()
+        .ifPresent(c -> c.abrir());
     }
-
+        
     public void alternarMarcacao(int linha, int coluna) {
         campos.parallelStream()
             .filter(c -> c.getLinha() == linha && c.getColuna() == coluna)
@@ -92,10 +86,16 @@ public class Tabuleiro implements CampoObservador {
     
     public void eventoOcorreu(Campo campo, CampoEvento evento) {
         if (evento == CampoEvento.EXPLODIR) {
-            System.out.println("Perdeu... :(");
+            mostrarMinas();
             notificarObservadores(false);
         } else if (objetivoAlcancado()) {
             notificarObservadores(true);
         }
+    }
+
+    private void mostrarMinas() {
+        campos.stream()
+        .filter(c -> c.isMinado())
+        .forEach(c -> c.setAberto(true));
     }
 }
