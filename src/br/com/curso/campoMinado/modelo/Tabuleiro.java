@@ -23,6 +23,10 @@ public class Tabuleiro implements CampoObservador {
         sortearMinas();
     }
 
+    public void iterarCampos(Consumer<Campo> funcao) {
+        campos.forEach(funcao);
+    }
+
     public void registrarObservador(Consumer<ResultadoEvento> observador) {
         observadores.add(observador);
     }

@@ -11,6 +11,7 @@ public class PainelTabuleiro extends JPanel {
     public PainelTabuleiro(Tabuleiro tabuleiro) {
 
         setLayout(new GridLayout(tabuleiro.getLinhas(), tabuleiro.getColunas()));
-        
+
+        tabuleiro.iterarCampos(c -> add(new BotaoCampo(c)));
     }
 }
