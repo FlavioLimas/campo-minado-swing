@@ -2,6 +2,7 @@ package br.com.curso.campoMinado.modelo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 public class Tabuleiro implements CampoObservador {
@@ -10,6 +11,7 @@ public class Tabuleiro implements CampoObservador {
     private int minas;
 
     private final List<Campo> campos = new ArrayList<>();
+    private final List<Consumer<Boolean>> observadores = new ArrayList<>();
 
     public Tabuleiro(int linhas, int colunas, int minas) {
         this.linhas = linhas;
@@ -19,6 +21,15 @@ public class Tabuleiro implements CampoObservador {
         gerarCampos();
         associarVizinhos();
         sortearMinas();
+    }
+
+    public void registrarObservador(Consumer<Boolean> observador) {
+        observadores.add(observador);
+    }
+
+    private void notificarObservadores(boolean resultado) {
+        observadores.stream()
+        .forEach(o -> o.accept(resultado));
     }
 
     public void abrir(int linha, int coluna) {
@@ -82,8 +93,9 @@ public class Tabuleiro implements CampoObservador {
     public void eventoOcorreu(Campo campo, CampoEvento evento) {
         if (evento == CampoEvento.EXPLODIR) {
             System.out.println("Perdeu... :(");
+            notificarObservadores(false);
         } else if (objetivoAlcancado()) {
-            System.out.println("Ganhou... :)");
+            notificarObservadores(true);
         }
     }
 }
