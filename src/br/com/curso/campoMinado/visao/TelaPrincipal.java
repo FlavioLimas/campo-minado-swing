@@ -7,6 +7,7 @@ public class TelaPrincipal extends JFrame {
     public TelaPrincipal() {
         setTitle("Campo Minado");
         setSize(690, 438);
+        setLocationRelativeTo(null);
         setVisible(true);
     }
 
