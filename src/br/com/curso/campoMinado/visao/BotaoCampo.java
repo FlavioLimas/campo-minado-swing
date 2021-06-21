@@ -58,6 +58,8 @@ public class BotaoCampo extends JButton implements CampoObservador, MouseInputLi
     }
 
     private void aplicarEstiloAbrir() {
+        setBackground(BG_PADRAO);
+        setBorder(BorderFactory.createLineBorder(Color.GRAY));
     }
 
     // Interface dos eventos do Mouse
