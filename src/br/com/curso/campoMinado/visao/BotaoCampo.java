@@ -26,8 +26,12 @@ public class BotaoCampo extends JButton implements CampoObservador {
                 break;
         
             default:
+                aplicarEstiloPadrao();
                 break;
         }
+    }
+
+    private void aplicarEstiloPadrao() {
     }
 
     private void aplicarEstiloExplodir() {
