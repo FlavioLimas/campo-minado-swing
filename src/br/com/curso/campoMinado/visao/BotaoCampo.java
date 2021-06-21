@@ -1,15 +1,17 @@
 package br.com.curso.campoMinado.visao;
 
 import java.awt.Color;
+import java.awt.event.MouseEvent;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.event.MouseInputListener;
 
 import br.com.curso.campoMinado.modelo.Campo;
 import br.com.curso.campoMinado.modelo.CampoEvento;
 import br.com.curso.campoMinado.modelo.CampoObservador;
 
-public class BotaoCampo extends JButton implements CampoObservador {
+public class BotaoCampo extends JButton implements CampoObservador, MouseInputListener {
 
     private final Color BG_PADRAO = new Color(184, 184, 184);
     private final Color BG_MARCADO = new Color(8, 179, 247);
@@ -56,4 +58,13 @@ public class BotaoCampo extends JButton implements CampoObservador {
 
     private void aplicarEstiloAbrir() {
     }
+
+    // Interface dos eventos do Mouse
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        
+    }
+
+    
 }
