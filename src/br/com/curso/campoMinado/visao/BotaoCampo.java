@@ -2,6 +2,7 @@ package br.com.curso.campoMinado.visao;
 
 import java.awt.Color;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 
 import br.com.curso.campoMinado.modelo.Campo;
@@ -19,6 +20,7 @@ public class BotaoCampo extends JButton implements CampoObservador {
 
     public BotaoCampo(Campo campo) {
         this.campo = campo;
+        setBorder(BorderFactory.createBevelBorder(0));
 
         campo.registrarObservador(this);
     }
