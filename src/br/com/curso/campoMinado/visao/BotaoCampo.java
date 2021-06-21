@@ -8,7 +8,11 @@ import br.com.curso.campoMinado.modelo.CampoObservador;
 
 public class BotaoCampo extends JButton implements CampoObservador {
 
+    private Campo campo;
+
     public BotaoCampo(Campo campo) {
+        this.campo = campo;
+
         campo.registrarObservador(this);
     }
     
