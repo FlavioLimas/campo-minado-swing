@@ -25,6 +25,7 @@ public class BotaoCampo extends JButton implements CampoObservador, MouseInputLi
         setBackground(BG_PADRAO);
         setBorder(BorderFactory.createBevelBorder(0));
 
+        addMouseListener(this);
         campo.registrarObservador(this);
     }
     
