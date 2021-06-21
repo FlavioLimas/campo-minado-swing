@@ -18,10 +18,16 @@ public class BotaoCampo extends JButton implements CampoObservador {
             case ABRIR:
                 aplicarEstiloAbrir();
                 break;
+            case MARCAR:
+                aplicarEstiloMarcar();
+                break;
         
             default:
                 break;
         }
+    }
+
+    private void aplicarEstiloMarcar() {
     }
 
     private void aplicarEstiloAbrir() {
