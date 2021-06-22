@@ -23,6 +23,7 @@ public class BotaoCampo extends JButton implements CampoObservador, MouseInputLi
     public BotaoCampo(Campo campo) {
         this.campo = campo;
         setBackground(BG_PADRAO);
+        setOpaque(true);
         setBorder(BorderFactory.createBevelBorder(0));
 
         addMouseListener(this);
@@ -55,11 +56,13 @@ public class BotaoCampo extends JButton implements CampoObservador, MouseInputLi
 
     private void aplicarEstiloExplodir() {
         setBackground(BG_EXPL);
+        setForeground(Color.WHITE);
         setText("X");
     }
 
     private void aplicarEstiloMarcar() {
         setBackground(BG_MARCADO);
+        setForeground(Color.BLACK);
         setText("M");
     }
 
