@@ -16,7 +16,7 @@ public class PainelTabuleiro extends JPanel {
         tabuleiro.iterarCampos(c -> add(new BotaoCampo(c)));
         tabuleiro.registrarObservador(e -> {
 
-            SwingUtilities.invokeLater(() -> {
+            SwingUtilities.invokeLater(() -> { // Garantindo a atualizacao da interface e apos apresentacao da mensagem
 
                 if (e.isGanhou()) {
                     JOptionPane.showMessageDialog(this, "Ganhou :)");
