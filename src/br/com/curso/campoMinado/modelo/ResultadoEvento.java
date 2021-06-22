@@ -8,7 +8,7 @@ public class ResultadoEvento {
         this.ganhou = ganhou;
     }
 
-    public boolean getGanhou() {
+    public boolean isGanhou() {
         return ganhou;
     }
 }
