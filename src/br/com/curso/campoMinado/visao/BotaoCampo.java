@@ -67,8 +67,13 @@ public class BotaoCampo extends JButton implements CampoObservador, MouseInputLi
     }
 
     private void aplicarEstiloAbrir() {
-        setBackground(BG_PADRAO);
+
         setBorder(BorderFactory.createLineBorder(Color.GRAY));
+        if (campo.isMinado()) {
+            setBackground(BG_EXPL);
+            return;
+        }
+        setBackground(BG_PADRAO);
         
         switch (campo.minasNaVizinhanca()) {
             case 1:
