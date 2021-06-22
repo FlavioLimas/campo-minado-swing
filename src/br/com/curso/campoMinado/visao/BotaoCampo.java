@@ -49,6 +49,8 @@ public class BotaoCampo extends JButton implements CampoObservador, MouseInputLi
     }
 
     private void aplicarEstiloPadrao() {
+        setBackground(BG_PADRAO);
+        setText("");
     }
 
     private void aplicarEstiloExplodir() {
